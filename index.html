@@ -1,18 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	
-	<title>Welcome to the New Website</title>
-	
-	<link rel="stylesheet" href="assets/styles/main.css">
-	
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Club</title>
+    <style>
+        /* CSS Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+        nav {
+            background-color: #444;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        nav a:hover {
+            background-color: #555;
+        }
+        section {
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .gallery img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
+    <header>
+        <h1>Welcome to Space Club</h1>
+        <p>Exploring the wonders of the universe together</p>
+    </header>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About Us</a>
+        <a href="#">Events</a>
+        <a href="#">Gallery</a>
+        <a href="#">Contact</a>
+    </nav>
+    <section>
+        <div class="container">
+            <h2>About Us</h2>
+            <p>Welcome to Space Club! We are a community passionate about space exploration and astronomy. Our mission is to inspire curiosity about the cosmos and foster a deeper understanding of the universe.</p>
+        </div>
+    </section>
+    <section class="gallery">
+        <div class="container">
+            <h2>Gallery</h2>
+            <div class="gallery-images">
+                <img src="https://via.placeholder.com/300" alt="Space Image 1">
+                <img src="https://via.placeholder.com/300" alt="Space Image 2">
+                <img src="https://via.placeholder.com/300" alt="Space Image 3">
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2024 Space Club. All rights reserved.</p>
+    </footer>
+    
+    <script>
+        // JavaScript for Gallery Image Slider
+        const images = document.querySelectorAll('.gallery-images img');
+        let currentImageIndex = 0;
 
-	<script src="assets/scripts/main.js"></script>
+        function showImage(index) {
+            images.forEach(img => img.style.display = 'none');
+            images[index].style.display = 'block';
+        }
 
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            showImage(currentImageIndex);
+        }
+
+        function prevImage() {
+            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+            showImage(currentImageIndex);
+        }
+
+        showImage(currentImageIndex);
+        setInterval(nextImage, 3000); // Auto slide every 3 seconds
+    </script>
 </body>
 </html>
